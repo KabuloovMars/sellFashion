@@ -1,11 +1,28 @@
-<x-app-layout>
-    
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-               
-            </div>
+<head>
+    @include('admin.css')
+</head>
+
+<body>
+    <div class="loader"></div>
+    <div id="app">
+        <div class="main-wrapper main-wrapper-1">
+            <div class="navbar-bg"></div>
+            {{-- navbar --}}
+            @include('admin.navbar')
+            {{-- sidebar --}}
+            @include('admin.sidebar')
+            <!-- Main Content -->
+            @include('admin.body')
+            {{-- footer --}}
+            @include('admin.footer')
         </div>
     </div>
-</x-app-layout>
+    </div>
+    {{-- Js --}}
+    @include('admin.js')
+</body>
+
+</html>
