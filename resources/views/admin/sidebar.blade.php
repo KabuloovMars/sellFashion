@@ -15,7 +15,7 @@
           <a href="#" class="menu-toggle nav-link has-dropdown"><i
               data-feather="briefcase"></i><span>Category</span></a>
           <ul class="dropdown-menu">
-            <li><a class="nav-link" href="{{ route('indexCategory') }}">Add Category</a></li>
+            <li><a class="nav-link" href="{{ route('addViewCategory') }}">Add Category</a></li>
             <li><a class="nav-link" href="widget-data.html">Data Widgets</a></li>
           </ul>
         </li>

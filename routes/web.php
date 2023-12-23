@@ -31,4 +31,9 @@ Route::middleware([
 
 
 Route::get('/dash',[MainController::class,'dashboard']);
-Route::get('index-category',[AdminController::class,'indexCategory'])->name('indexCategory');
+
+Route::get('add-view-category',[AdminController::class,'addViewCategory'])->name('addViewCategory');
+Route::post('addCategory',[AdminController::class,'addCategory'])->name('addCategory');
+Route::get('delete-category/{id}',[AdminController::class,'deleteCategory'])->name('deleteCategory');
+Route::get('edit-category/{id}',[AdminController::class,'editCategory'])->name('editCategory');
+Route::post('update-category',[AdminController::class,'updateCategory'])->name('updateCategory');
