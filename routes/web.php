@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MainController;
+use App\Models\Admin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,8 +33,16 @@ Route::middleware([
 
 Route::get('/dash',[MainController::class,'dashboard']);
 
+// category
 Route::get('add-view-category',[AdminController::class,'addViewCategory'])->name('addViewCategory');
 Route::post('addCategory',[AdminController::class,'addCategory'])->name('addCategory');
 Route::get('delete-category/{id}',[AdminController::class,'deleteCategory'])->name('deleteCategory');
 Route::get('edit-category/{id}',[AdminController::class,'editCategory'])->name('editCategory');
 Route::post('update-category',[AdminController::class,'updateCategory'])->name('updateCategory');
+
+
+//Product
+
+Route::get('add-view-product',[AdminController::class,'addViewProduct'])->name('addViewProduct');
+Route::post('add-product',[AdminController::class,'addProduct'])->name('addProduct');
+Route::get('view-product',[AdminController::class,'viewProduct'])->name('viewProduct');

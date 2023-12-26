@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
+
 
 class AdminController extends Controller
 {
@@ -54,5 +56,47 @@ class AdminController extends Controller
 
          return view('admin.category-create',compact('categories') )->with('message','Category updated successfuly!');
 
+    }
+
+    //product
+
+    public function addViewProduct (){
+        $categories = Category::all();
+        return view('admin.addViewProduct',compact('categories'));
+
+    }
+
+    public function addProduct(Request $request){
+
+       $request->validate([
+            'name'=>'required',
+            'desc'=>'required',
+            'price'=>'required',
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
+       ]);
+
+
+       $data = $request->all();
+       if($request->hasFile('img')){
+        $img = $request->file('img');
+        $imgName = time().'-'.$img->getClientOriginalName();
+        $path = $img->storeAs('product-img',$imgName);
+        $data['img']=$imgName;
+
+       }
+
+
+       
+       Product::create($data);
+
+       return redirect()->route('viewProduct');
+
+    }
+
+
+    public function viewProduct(){
+        $products  = Product::all();
+
+        return view('admin.viewProduct',compact('products'));
     }
 }
