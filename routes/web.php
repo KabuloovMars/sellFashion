@@ -46,3 +46,14 @@ Route::post('update-category',[AdminController::class,'updateCategory'])->name('
 Route::get('add-view-product',[AdminController::class,'addViewProduct'])->name('addViewProduct');
 Route::post('add-product',[AdminController::class,'addProduct'])->name('addProduct');
 Route::get('view-product',[AdminController::class,'viewProduct'])->name('viewProduct');
+Route::get('edit-product/{id}',[AdminController::class,'editProduct'])->name('editProduct');
+Route::post('update-product',[AdminController::class,'updateProduct'])->name('updateProduct');
+Route::get('search-product',[AdminController::class,'searchProduct'])->name('searchProduct');
+Route::get('delete-product/{id}',[AdminController::class,'deleteProduct'])->name('deleteProduct');
+
+
+// home main
+
+ Route::get('/',[MainController::class,'indexHomeProduct']);
+
+ Route::get('cart-view-product',[MainController::class,'cartViewProduct'])->name('cartViewProduct');

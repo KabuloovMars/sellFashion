@@ -17,6 +17,12 @@
             <!-- Main Content -->
 
             <div class="main-content">
+                @if (Session::has('message'))
+                <div class="alert alert-success alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>{{ session()->get('message') }}</strong>
+                </div>
+            @endif
                 <section class="section">
                     <div class="section-body">
                         <div class="row">
@@ -26,11 +32,11 @@
                                   <div class="card-header">
                                     <h4>Products table</h4>
                                     <div class="card-header-form">
-                                      <form>
+                                      <form action="{{ route('searchProduct') }}  " method="GET" >
                                         <div class="input-group">
-                                          <input type="text" class="form-control" placeholder="Search">
+                                          <input type="text" name="search" class="form-control" placeholder="Search">
                                           <div class="input-group-btn">
-                                            <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
                                           </div>
                                         </div>
                                       </form>
@@ -68,9 +74,9 @@
                                           <td>{{ $product->quantity }}</td>
                                           <td>{{ $product->desc }}</td>
                                           <td>
-                                           <a href="#" class="btn btn-primary " >Edit</a>
+                                           <a href="{{route('editProduct',$product->id) }}" class="btn btn-primary " >Edit</a>
                                           </td>
-                                          <td><a href="#" class="btn btn-danger">Delete</a></td>
+                                          <td><a href="{{ route('deleteProduct',$product->id) }}" class="btn btn-danger">Delete</a></td>
                                         </tr>
 
                                         @endforeach

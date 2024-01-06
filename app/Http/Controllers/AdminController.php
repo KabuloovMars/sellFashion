@@ -86,7 +86,7 @@ class AdminController extends Controller
        }
 
 
-       
+
        Product::create($data);
 
        return redirect()->route('viewProduct');
@@ -99,4 +99,57 @@ class AdminController extends Controller
 
         return view('admin.viewProduct',compact('products'));
     }
+
+
+    public function editProduct($id){
+
+        $product = Product::findOrFail($id);
+        $categories = Category::all();
+        return view('admin.update-product',compact('categories','product'));
+
+    }
+
+
+    public function updateProduct(Request $request){
+        $product = Product::findOrFail($request->id);
+
+       $data =  $request->validate([
+            'name'=>'required',
+            'desc'=>'required',
+            'price'=>'required',
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
+       ]);
+       $data = $request->all();
+
+       if($request->hasFile('img')){
+        $img = $request->file('img');
+        $imgName = time().'-'.$img->getClientOriginalName();
+        $path = $img->storeAs('product-img',$imgName);
+        $data['img']=$imgName;
+
+       }
+       $product->update($data);
+       return redirect()->route('viewProduct')->with('message','product updated Successfuly!');
+    }
+
+
+
+    public function searchProduct(Request $request){
+
+        $text = $request->search;
+
+        $products = Product::where('name','like','%'.$text.'%')
+                           ->orWhere('category','like','%'.$text.'%')->get();
+        return view('admin.viewProduct',compact('products'));
+    }
+
+    public function deleteProduct($id){
+        $product = Product::findOrFail($id);
+        $product->delete();
+        return redirect()->back()->with('message','Product deleted');
+
+    }
+
+
+
 }
