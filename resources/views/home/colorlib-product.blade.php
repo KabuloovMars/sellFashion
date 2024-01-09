@@ -28,6 +28,8 @@
 
             </div>
             @endforeach
+
+            <h2>{{ $products->links() }}</h2>
             {{-- <div class="col-lg-3 mb-4 text-center">
                 <div class="product-entry border">
                     <a href="#" class="prod-img">

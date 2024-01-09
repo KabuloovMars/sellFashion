@@ -10,16 +10,18 @@ class MainController extends Controller
 {
     public function dashboard(){
         $userType = Auth::user()->user_type;
-        $products = Product::all();
+        $products = Product::paginate(3);
         if($userType==1){
             return view('admin.home');
         }else{
+
             return view('home.index',compact('products'));
         }
     }
 
     public function indexHomeProduct(){
-        $products = Product::all();
+        $products = Product::paginate(4);
+
 
         return view('home.index',compact('products'));
     }
