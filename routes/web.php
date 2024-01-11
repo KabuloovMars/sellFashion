@@ -56,4 +56,6 @@ Route::get('delete-product/{id}',[AdminController::class,'deleteProduct'])->name
 
  Route::get('/',[MainController::class,'indexHomeProduct']);
 
- Route::get('cart-view-product',[MainController::class,'cartViewProduct'])->name('cartViewProduct');
+ Route::get('product-desc/{id}',[MainController::class,'productDesc'])->name('productDesc');
+ Route::post('add-to-cart/{id}',[MainController::class,'addToCart'])->name('addToCart');
+Route::get('index-cart',[MainController::class,'indexCart'])->name('indexCart');
