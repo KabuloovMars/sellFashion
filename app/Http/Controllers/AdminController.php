@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
+ use Barryvdh\DomPDF\Facade\Pdf;
+
+
 
 
 class AdminController extends Controller
@@ -150,6 +154,38 @@ class AdminController extends Controller
 
     }
 
+
+
+    public function searchOrders(request $request){
+        $text = $request->search;
+
+
+
+        $orders = Order::where('product_name','like','%'.$text.'%')->get();
+
+        return view('admin.orders-view',compact('orders'));
+
+
+
+
+
+
+    }
+    public function pdf($id){
+        $products = Order::findOrfail($id);
+        $pdf = Pdf::loadView('pdf.invoice', compact('products'));
+        return $pdf->download('invoice.pdf');
+
+
+        }
+
+        public function pfd($id){
+            $products = Order::findOrfail($id);
+
+            return view('admin.pdf' ,compact('products'));
+
+
+            }
 
 
 }

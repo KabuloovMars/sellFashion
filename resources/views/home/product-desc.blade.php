@@ -98,20 +98,20 @@
                          @csrf
                             <div class="input-group">
                             <span class="input-group-btn">
-                                <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+                                <button type="button" class="quantity-left-minus btn bg-danger btn-number"  data-type="minus" data-field="">
                                   <span class="glyphicon glyphicon-minus"></span>
                                 </button>
                             </span>
 
                             <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="">
                             <span class="input-group-btn">
-                                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+                                <button type="button" class="quantity-right-plus btn bg-success btn-number" data-type="plus" data-field="">
                                     <span class="glyphicon glyphicon-plus"></span>
                                 </button>
                             </span>
 
                         </div>
-                        <button type="submit" class=" mt-5 btn btn-primary" ><i class="me-1 fa fa-shopping-basket"></i>Add To Cart</button>
+                        <button type="submit" class=" mt-5 btn bg-primary" ><i class="me-1 fa fa-shopping-basket"></i>Add To Cart</button>
                     </form>
                       </div>
                     </div>

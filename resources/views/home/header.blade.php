@@ -1,9 +1,11 @@
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+
 <nav class="colorlib-nav" role="navigation">
     <div class="top-menu">
         <div class="container">
             <div class="row">
                 <div class="col-sm-7 col-md-9">
-                    <div id="colorlib-logo"><a href="index.html">Footwear</a></div>
+                    <div id="colorlib-logo"><a href="index.html">FASHION</a></div>
                 </div>
                 <div class="col-sm-5 col-md-3">
                 <form action="#" class="search-wrap">
@@ -17,7 +19,7 @@
             <div class="row">
                 <div class="col-sm-12 text-left menu-1">
                     <ul>
-                        <li class="active"><a href="index.html">Home</a></li>
+                        <li class="active"><a href="dash">Home</a></li>
                         <li class="has-dropdown">
                             <a href="men.html">Men</a>
                             <ul class="dropdown">
@@ -36,6 +38,17 @@
                         @auth
 
                         <li class="cart" >
+                            <li class="cart">
+                                <a href="{{route('ViewSaveProduct')}}">
+                                    SAVED
+                                    <lord-icon
+    src="https://cdn.lordicon.com/ulnswmkk.json"
+    trigger="morph"
+    colors="primary:#e83a30"
+    style="width:17px;height:17px">
+</lord-icon>
+                    </li>
+                            <li class="cart"><a href="{{ route('IndexCart') }}"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
                             <x-app-layout>
 
                             </x-app-layout>
@@ -44,8 +57,7 @@
                         <li class="cart" ><a href="{{ route('register') }}">SIGN-UP</a>  </li>
                         <li class="cart" ><a href="{{ route('login') }}">LOGIN</a>  </li>
 
-                        <li class="cart"><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
-                        
+
                         @endauth
 
                         @endif

@@ -1,3 +1,5 @@
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+
 <div class="colorlib-product">
     <div class="container">
         <div class="row">
@@ -23,7 +25,15 @@
                         <span class="price">${{ $product->discount_price }}</span>
                         @endif
                     </div>
-                    <a href="{{ route('productDesc',$product->id) }}" class="btn btn-success" >View</a>
+                    {{-- <a href="{{ route('productDesc',$product->id) }}" class="btn btn-success" >View</a> --}}
+
+                    <a href="{{route('addToSave',$product->id)}}" class="btn btn-light border border-secondary py-2 icon-hover px-3">
+                        <lord-icon
+                        src="https://cdn.lordicon.com/ulnswmkk.json"
+                        trigger="click"
+                        colors="primary:#e83a30"
+                        style="width:50px;height:40px">
+                    </lord-icon></a>
                 </div>
 
             </div>

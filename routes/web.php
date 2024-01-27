@@ -57,5 +57,35 @@ Route::get('delete-product/{id}',[AdminController::class,'deleteProduct'])->name
  Route::get('/',[MainController::class,'indexHomeProduct']);
 
  Route::get('product-desc/{id}',[MainController::class,'productDesc'])->name('productDesc');
+ Route::get('descriptionproduct/{id}',[MainController::class,'descriptionProduct'])->name('descriptionProduct');
+
  Route::post('add-to-cart/{id}',[MainController::class,'addToCart'])->name('addToCart');
-Route::get('index-cart',[MainController::class,'indexCart'])->name('indexCart');
+Route::get('index-cart',[MainController::class,'IndexCart'])->name('IndexCart');
+Route::get('deleteCart/{id}',[MainController::class, 'deleteCart'])->name('deleteCart');
+Route::get('add-To-Order', [MainController::class, 'addToOrder'])->name('addToOrder');
+
+Route::get('view-All-Orders', [MainController::class, 'viewAllOrders'])->name('viewAllOrders');
+Route::get('searchOrders', [AdminController::class,'searchOrders'])->name('searchOrders');
+Route::get('Update/{id}', [MainController::class, 'updateStatus'])->name('updateStatus');
+Route::get('deleteFromCart/{id}',[MainController::class,'deletesave'])->name('deletesave');
+
+//
+route::get('Accept',[AdminController::class,'accept'])->name('accept');
+
+//save-product
+Route::get('Save/{id}' , [MainController::class, 'addToSave'])->name('addToSave');
+Route::get('view-saved-product',[MainController::class,'ViewSaveProduct'])->name('ViewSaveProduct');
+
+
+
+
+
+//pdf
+
+Route::get('pdf/{id}',[AdminController::class,'pdf'])->name('pdf');
+Route::get('pfd/{id}',[AdminController::class,'pfd'])->name('pfd');
+
+
+
+
+
