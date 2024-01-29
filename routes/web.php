@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\SmsController;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Route;
 
@@ -86,6 +87,6 @@ Route::get('pdf/{id}',[AdminController::class,'pdf'])->name('pdf');
 Route::get('pfd/{id}',[AdminController::class,'pfd'])->name('pfd');
 
 
+//sms
 
-
-
+Route::get('sms-test',[SmsController::class,'smsSend']);

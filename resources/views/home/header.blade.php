@@ -40,7 +40,10 @@
                         <li class="cart" >
                             <li class="cart">
                                 <a href="{{route('ViewSaveProduct')}}">
-                                    SAVED
+
+                                    <a class="wishlist label-down link d-xs-show dropdown cart-dropdown" href="https://openshop.uz/wishlist">flex<i class="w-icon-heart">
+                                    ::before</i>
+                                    <span class="wishlist-label d-lg-show">Sevimlilar</span></a>
                                     <lord-icon
     src="https://cdn.lordicon.com/ulnswmkk.json"
     trigger="morph"
